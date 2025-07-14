@@ -58,11 +58,22 @@ const FGDBuilder = () => {
     const handleExport = () => {
         try {
             const fgdText = generateFGD(state);
+            const defaultFileName = 'my_game.fgd';
+            const fileName = window.prompt('Enter a filename for your FGD file:', defaultFileName);
+
+            if (fileName === null) {
+                // User cancelled the prompt
+                return;
+            }
+
+            // Ensure the filename ends with .fgd, or add it if it doesn't.
+            const finalFileName = fileName.trim() ? (fileName.endsWith('.fgd') ? fileName : `${fileName}.fgd`) : defaultFileName;
+
             const blob = new Blob([fgdText], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = 'schema.fgd';
+            link.download = finalFileName;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
