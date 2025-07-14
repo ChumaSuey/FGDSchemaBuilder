@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FGDSchemaBuilder/static/css/main.354bec04.css",
+    "main.js": "/FGDSchemaBuilder/static/js/main.a38db1bb.js",
+    "static/js/453.246174a4.chunk.js": "/FGDSchemaBuilder/static/js/453.246174a4.chunk.js",
+    "index.html": "/FGDSchemaBuilder/index.html",
+    "main.354bec04.css.map": "/FGDSchemaBuilder/static/css/main.354bec04.css.map",
+    "main.a38db1bb.js.map": "/FGDSchemaBuilder/static/js/main.a38db1bb.js.map",
+    "453.246174a4.chunk.js.map": "/FGDSchemaBuilder/static/js/453.246174a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.354bec04.css",
+    "static/js/main.a38db1bb.js"
+  ]
+}
