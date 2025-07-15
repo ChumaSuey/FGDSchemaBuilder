@@ -52,7 +52,7 @@ const SortableEntityItem = ({ entity, isSelected, onSelect, onDelete, isDragMode
     );
 };
 
-export const EntityList = ({ isDragModeEnabled }) => {
+export const EntityList = ({ entities, isDragModeEnabled }) => {
     const { state, dispatch } = useFGD();
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -82,9 +82,11 @@ export const EntityList = ({ isDragModeEnabled }) => {
     const handleDragEnd = (event) => {
         const { active, over } = event;
 
+        // Use the full state.entities for reordering, since that's the source of truth
         if (over && active.id !== over.id) {
-            const oldIndex = state.entities.findIndex((e) => e.id === active.id);
-            const newIndex = state.entities.findIndex((e) => e.id === over.id);
+            const allEntities = state.entities;
+            const oldIndex = allEntities.findIndex((e) => e.id === active.id);
+            const newIndex = allEntities.findIndex((e) => e.id === over.id);
 
             if (oldIndex !== -1 && newIndex !== -1) {
                 dispatch({
@@ -98,18 +100,20 @@ export const EntityList = ({ isDragModeEnabled }) => {
         }
     };
 
-    const entityIds = state.entities.map(e => e.id);
+    // Use the entities prop if provided, otherwise fallback to state.entities
+    const entityList = entities || state.entities;
+    const entityIds = entityList.map(e => e.id);
 
     return (
         <div className="entity-list-panel">
             <header className="entity-list-header">
                 <h2>Entities</h2>
-                <button onClick={handleAddEntity}>+ Add Entity</button>
+                <button onClick={handleAddEntity}>Add Entity</button>
             </header>
             <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
                 <div className={`entity-list-container ${isDragModeEnabled ? 'drag-mode-enabled' : ''}`}>
                     <SortableContext items={entityIds} strategy={verticalListSortingStrategy}>
-                        {state.entities.map(entity => (
+                        {entityList.map(entity => (
                             <SortableEntityItem
                                 key={entity.id}
                                 entity={entity}

@@ -35,7 +35,7 @@ export const PropertyList = ({ entityId }) => {
             <header className="property-list-header">
                 <h3>Properties</h3>
                 <button onClick={handleAddProperty} className="add-property-btn">
-                    + Add Property
+                    Add Property
                 </button>
             </header>
             <div className="properties-container">

@@ -82,6 +82,12 @@ body {
   overflow-y: auto;
 }
 
+.panel-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remove padding for the control section */
+}
+
 .app-header, .entity-list-header, .entity-editor-header, .fgd-preview-header, .property-list-header {
   background-color: var(--header-bg-color);
   border-bottom: 1px solid var(--border-color);
@@ -349,4 +355,61 @@ label {
 .flag-option label {
   margin-bottom: 0; /* override default label margin */
   font-weight: normal;
+}
+
+/* === Entity List Filtering & Badges === */
+
+.entity-list-controls {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--header-bg-color); /* Match header for controls area */
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .entity-list-controls {
+        flex-direction: row;
+    }
+}
+
+.entity-list-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0.5rem; /* Add padding back just for the list part */
+}
+
+.entity-name {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+}
+
+.entity-type-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    flex-shrink: 0;
+    text-transform: capitalize;
+}
+
+/* Color coding for different entity types */
+.type-pointclass { background-color: #4a90e2; } /* Blue */
+.type-solidclass { background-color: #f5a623; } /* Orange */
+.type-baseclass { background-color: #7ed321; }  /* Green */
+.type-filterclass { background-color: #bd10e0; } /* Purple */
+.type-npcclass { background-color: #d0021b; }    /* Red */
+.type-keyframeclass, .type-moveclass { background-color: #49c4c4; } /* Teal */
+
+.no-entities-message {
+    padding: 20px;
+    text-align: center;
+    color: var(--placeholder-text-color);
 }
