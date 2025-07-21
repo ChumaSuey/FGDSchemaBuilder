@@ -16,6 +16,9 @@ const FGDBuilder = () => {
     const fileInputRef = useRef(null);
     const [theme, setTheme] = useState('dark'); // Defaulting to dark as per user preference
     const [isDragModeEnabled, setIsDragModeEnabled] = useState(false);
+    const [filterText, setFilterText] = useState('');
+    const [filterType, setFilterType] = useState('All');
+    const [alphabeticalOrder, setAlphabeticalOrder] = useState(false);
 
     const toggleTheme = () => {
         setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'));
@@ -66,8 +69,9 @@ const FGDBuilder = () => {
                 return;
             }
 
+            const trimmedFileName = fileName.trim();
             // Ensure the filename ends with .fgd, or add it if it doesn't.
-            const finalFileName = fileName.trim() ? (fileName.endsWith('.fgd') ? fileName : `${fileName}.fgd`) : defaultFileName;
+            const finalFileName = trimmedFileName ? (trimmedFileName.endsWith('.fgd') ? trimmedFileName : `${trimmedFileName}.fgd`) : defaultFileName;
 
             const blob = new Blob([fgdText], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
@@ -84,6 +88,71 @@ const FGDBuilder = () => {
         }
     };
 
+    // Memoize class type labels to avoid recreating the object on every render
+    const CLASS_TYPE_LABELS = React.useMemo(() => ({
+        BaseClass: 'Base',
+        SolidClass: 'Solid',
+        PointClass: 'Point',
+    }), []);
+
+    // Get unique class types from name-filtered entities
+    const nameFilteredEntities = React.useMemo(() => {
+        if (!state.entities) return [];
+        return state.entities.filter(entity => {
+            if (!entity.name) return false;
+            return entity.name.toLowerCase().includes(filterText.toLowerCase());
+        });
+    }, [state.entities, filterText]);
+
+    // Memoize ALL_CLASS_TYPES to avoid recreating the array on every render
+    const ALL_CLASS_TYPES = React.useMemo(() => ['SolidClass', 'PointClass', 'BaseClass'], []);
+    const baseClassExists = React.useMemo(() => {
+        return state.entities.some(entity => Array.isArray(entity.baseClasses) && entity.baseClasses.length > 0);
+    }, [state.entities]); // Dependency is correct
+    const availableClassTypes = React.useMemo(() => {
+        const presentTypes = new Set();
+        nameFilteredEntities.forEach(entity => {
+            if (entity.classType && CLASS_TYPE_LABELS[entity.classType]) {
+                presentTypes.add(entity.classType);
+            }
+        });
+        return ALL_CLASS_TYPES.map(type => ({
+            type,
+            label: CLASS_TYPE_LABELS[type],
+            enabled: type === 'BaseClass' ? baseClassExists : presentTypes.has(type)
+        }));
+    }, [nameFilteredEntities, CLASS_TYPE_LABELS, baseClassExists, ALL_CLASS_TYPES]);
+
+    const filteredAndSortedEntities = React.useMemo(() => {
+        if (!state.entities) {
+            return [];
+        }
+
+        const filtered = state.entities.filter(entity => {
+            if (!entity.name) return false;
+            const nameMatch = entity.name.toLowerCase().includes(filterText.toLowerCase());
+            let typeMatch = true;
+            if (filterType === 'SolidClass' || filterType === 'PointClass') {
+                typeMatch = entity.classType === filterType;
+            } else if (filterType === 'BaseClass') {
+                typeMatch = Array.isArray(entity.baseClasses) && entity.baseClasses.length > 0;
+            } else if (filterType === 'All') {
+                typeMatch = true;
+            } else {
+                // Defensive: if filterType is unknown, don't match
+                typeMatch = false;
+            }
+            return nameMatch && typeMatch;
+        });
+
+        if (alphabeticalOrder) {
+            return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+        } else {
+            // Preserve original order (drag-and-drop order)
+            return filtered;
+        }
+    }, [state.entities, filterText, filterType, alphabeticalOrder]);
+
     return (
         <div className={`app-container ${theme}`}>
             <header className="app-header">
@@ -98,7 +167,11 @@ const FGDBuilder = () => {
                         accept=".fgd"
                     />
                     <button onClick={handleExport}>Export FGD</button>
-                    <button onClick={() => setIsDragModeEnabled(prev => !prev)} className={isDragModeEnabled ? 'drag-mode-active' : ''}>
+                    <button
+                        onClick={() => setIsDragModeEnabled(prev => !prev)}
+                        className={isDragModeEnabled ? 'drag-mode-active' : ''}
+                        aria-pressed={isDragModeEnabled}
+                    >
                         Drag Mode: {isDragModeEnabled ? 'On' : 'Off'}
                     </button>
                     <button onClick={handleReset}>Reset</button>
@@ -109,7 +182,40 @@ const FGDBuilder = () => {
             </header>
             <main className="main-layout">
                 <div className="panel panel-list">
-                    <EntityList isDragModeEnabled={isDragModeEnabled} />
+                    <div className="entity-list-header-section">
+                        <div className="entity-list-sorting-controls">
+                            <button
+                                onClick={() => setAlphabeticalOrder((prev) => !prev)}
+                                className={`alphabetical-order-btn ${alphabeticalOrder ? 'alphabetical-active' : ''}`}
+                                aria-pressed={alphabeticalOrder}
+                            >
+                                Alphabetical Order{alphabeticalOrder ? ' (On)' : ' (Off)'}
+                            </button>
+                        </div>
+                    </div>
+                    <div className="entity-list-controls">
+                        <input
+                            type="text"
+                            placeholder="Filter by name..."
+                            value={filterText}
+                            onChange={(e) => {
+                                setFilterText(e.target.value);
+                                setFilterType('All'); // Reset type filter when name changes
+                            }}
+                            aria-label="Filter entities by name"
+                        />
+                        <select
+                            value={filterType}
+                            onChange={(e) => setFilterType(e.target.value)}
+                            aria-label="Filter entities by type"
+                        >
+                            <option value="All">All Types</option>
+                            {availableClassTypes.map(({ type, label, enabled }) => (
+                                <option key={type} value={type} disabled={!enabled}>{label}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <EntityList entities={filteredAndSortedEntities} isDragModeEnabled={isDragModeEnabled} />
                 </div>
                 <div className="panel panel-editor">
                     <EntityEditor />
