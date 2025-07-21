@@ -182,14 +182,16 @@ const FGDBuilder = () => {
             </header>
             <main className="main-layout">
                 <div className="panel panel-list">
-                    <div style={{ display: 'flex', alignItems: 'center', padding: '0.5rem 1rem 0.5rem 0.5rem', gap: '0.5rem' }}>
-                        <button
-                            onClick={() => setAlphabeticalOrder((prev) => !prev)}
-                            className={alphabeticalOrder ? 'alphabetical-active' : ''}
-                            aria-pressed={alphabeticalOrder}
-                        >
-                            Alphabetical Order{alphabeticalOrder ? ' (On)' : ' (Off)'}
-                        </button>
+                    <div className="entity-list-header-section">
+                        <div className="entity-list-sorting-controls">
+                            <button
+                                onClick={() => setAlphabeticalOrder((prev) => !prev)}
+                                className={`alphabetical-order-btn ${alphabeticalOrder ? 'alphabetical-active' : ''}`}
+                                aria-pressed={alphabeticalOrder}
+                            >
+                                Alphabetical Order{alphabeticalOrder ? ' (On)' : ' (Off)'}
+                            </button>
+                        </div>
                     </div>
                     <div className="entity-list-controls">
                         <input

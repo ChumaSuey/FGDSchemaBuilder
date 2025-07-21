@@ -359,6 +359,52 @@ label {
 
 /* === Entity List Filtering & Badges === */
 
+.entity-list-header-section {
+  background-color: var(--header-bg-color);
+  border-bottom: 2px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+
+.entity-list-header-section::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--button-bg-color) 0%, var(--button-hover-bg-color) 50%, var(--button-bg-color) 100%);
+  opacity: 0.6;
+}
+
+.entity-list-sorting-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alphabetical-order-btn {
+  background-color: var(--panel-bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--button-bg-color);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.alphabetical-order-btn:hover {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alphabetical-order-btn.alphabetical-active {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 .entity-list-controls {
     padding: 0.5rem;
     display: flex;
