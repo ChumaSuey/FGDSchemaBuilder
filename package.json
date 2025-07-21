@@ -2,7 +2,7 @@
   "name": "fgdsb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ChumaSuey.github.io/FGDSchemaBuilder/",
+  "homepage": "https://chumasuey.github.io/FGDSchemaBuilder/",
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
