@@ -7,6 +7,8 @@ Proceeding now with the formal talk of the project.
 
 The app will be referred as SB for simplification.
 
+Website : https://chumasuey.github.io/FGDSchemaBuilder
+
 ## Technical Aspects / Technical Content
 
 The script is made out of React (Javascript language), there are some remnants in some branches of Python (possibly this one) but it doesn't work, what Python initially in backend was the parsing and file handling.
