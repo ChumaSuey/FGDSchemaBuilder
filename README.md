@@ -40,6 +40,18 @@ Since the website has been seen without any FGD loaded, one is going to be in th
 
 <img width="1849" height="880" alt="image" src="https://github.com/user-attachments/assets/65ca1fca-8479-4840-a2f0-5d4878ab3bbf" />
 
+<img width="620" height="540" alt="image" src="https://github.com/user-attachments/assets/dbd0290b-9fcd-4195-bb35-a8b23368aef9" />
+
+Entities can have a wide range of different properties, with these pictures you can see the script in plain action.
+
+Once finishing the editing process of the FGD Script, user should press "Export FGD" to save the work.
+
+### Notes
+
+This script has some quirks and it's not a perfect editor in all the means, several notes should be taken into account:
+- Some properties may have a mishap showing or directly being edited in the editor, this is a small percentage but still.
+- 
+
 
 
 # Credits
