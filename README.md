@@ -46,12 +46,55 @@ Entities can have a wide range of different properties, with these pictures you 
 
 Once finishing the editing process of the FGD Script, user should press "Export FGD" to save the work.
 
+## In-Depth Function of the buttons.
+
+Alphabetical Order: Enforces the Alphabetical Order in the Entity list, important to say: This function can't be used at the same time with "Drag mode", when AO is active the blue bars as seen in the picture will be shown.
+
+<img width="475" height="689" alt="image" src="https://github.com/user-attachments/assets/cd57aec4-8ddf-4f09-ae64-b59b66377bdf" />
+
+
+Search and Filter: Searches for the written entity in the text box, or filters the search for Solid, Point and Base classes.
+
+<img width="505" height="317" alt="image" src="https://github.com/user-attachments/assets/737fa831-31a6-48d5-b48b-24d196e6133d" />
+
+Add Property: Adds a new property to the selected entity... the next picture shows an example.
+
+<img width="591" height="528" alt="image" src="https://github.com/user-attachments/assets/b6ea8bb0-9146-4c8b-b349-0ebce66b563e" />
+
+Copy to Clipboard: Clipboard copies all the FGD content written and edited so far by the user. (one of the output methods)
+
+<img width="635" height="725" alt="image" src="https://github.com/user-attachments/assets/9528a37c-d0f1-469f-8a39-6ca814f700c5" />
+
+The next 5 buttons that are outside the core vision:
+
+<img width="782" height="104" alt="image" src="https://github.com/user-attachments/assets/962bfedb-10aa-40d2-90ca-dcaf196d227b" />
+
+Import FGD: Self-Explanatory (File browser)
+Export FGD: Exports or saves user current work in a file (File browser for adding a name)
+
+Reset: As in the FGDParser, cleans the whole script for the functions to be usable again.
+
+Drag Mode (OFF/ON): This activate in the entity list a drag mode to move up and down entities and these changes will be reflected in the Parser and the FGD file when exported. This function can't be used with Alphabetical Order. (When active the blue bar will be shown)
+
+<img width="470" height="836" alt="image" src="https://github.com/user-attachments/assets/d484519d-ba8f-4588-8306-24cf16236851" />
+
+
+<img width="467" height="755" alt="image" src="https://github.com/user-attachments/assets/2ed1d463-38c4-4225-87d9-1d7ca41de269" />
+
+
+Toggle Light/Dark Mode: Will setup the Light/Dark mode... should be saved in the browser when revisiting the script.
+
 ### Notes
 
 This script has some quirks and it's not a perfect editor in all the means, several notes should be taken into account:
 - Some properties may have a mishap showing or directly being edited in the editor, this is a small percentage but still.
-- 
+- Comments are deleted when exporting the PDF due to a possible error, coding the parser is complicated... This may be patched in the future.
+- The script does understand when there are custom properties within a script, while recognized they can't be added for now.
+- Search Function and Filter by don't work together, but they work independently when looking for an specific function or just showing the type of entities the user is looking for.
 
+This script is mean't help modders and developers to setup and modify existing FGD files, the tool (website) isn't at it's prime.
+
+Hoping future modifications solve and ease the matter.
 
 
 # Credits
