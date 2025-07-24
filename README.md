@@ -26,8 +26,11 @@ When entering the website, the next picture show as follows.
 Colors were used to segment and classify all the functionality better.
 
 There are 3 columns : 
-- Left(Orange) : Will shot the entity list of the fgd file, it also has a search bar and a filter by entity.
-- Center(Yellow) : 
+- Left(Orange) : Shows the entity list of the fgd file, it also has a search bar and a filter by entity.
+- Center(Yellow) : Shows the properties of the selected entity.
+- Right(Red) : Is a live viewer of the FGD file as seen in UTF-8 or a close approximation of it.
+There's one upper side to the website, in a short description fashion:
+- Up(Green) : Are the buttons "property" buttons of the website.
 
 
 # Credits
