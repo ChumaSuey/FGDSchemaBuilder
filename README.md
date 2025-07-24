@@ -32,6 +32,10 @@ There are 3 columns :
 There's one upper side to the website, in a short description fashion:
 - Up(Green) : Are the buttons "property" buttons of the website.
 
+As stated before the workflow is to edit an already existing FGD file, while the user can start from scratch, and that's technically possible, focus is going to be on the main workflow functionality.
+
+The website internally stores the FGD file information unless exported.
+
 
 # Credits
 - Chuma (programming, team lead, full-stack)
