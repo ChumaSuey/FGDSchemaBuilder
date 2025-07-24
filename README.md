@@ -34,7 +34,12 @@ There's one upper side to the website, in a short description fashion:
 
 As stated before the workflow is to edit an already existing FGD file, while the user can start from scratch, and that's technically possible, focus is going to be on the main workflow functionality.
 
-The website internally stores the FGD file information unless exported.
+The website internally stores the FGD file information locally unless the work is exported.
+
+Since the website has been seen without any FGD loaded, one is going to be in the next picture, Quake.fgd of preference:
+
+<img width="1849" height="880" alt="image" src="https://github.com/user-attachments/assets/65ca1fca-8479-4840-a2f0-5d4878ab3bbf" />
+
 
 
 # Credits
