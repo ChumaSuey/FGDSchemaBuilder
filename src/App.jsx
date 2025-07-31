@@ -51,9 +51,9 @@ const FGDBuilder = () => {
     };
 
     const handleReset = () => {
-        // It's good practice to confirm destructive actions.
         if (window.confirm('Are you sure you want to reset all data? This action cannot be undone.')) {
             dispatch({ type: 'RESET_FGD' });
+            setFilterText(''); // Clear the filter text
         }
     };
 
@@ -153,6 +153,11 @@ const FGDBuilder = () => {
         }
     }, [state.entities, filterText, filterType, alphabeticalOrder]);
 
+    // Add this to your top-level render:
+    React.useEffect(() => {
+        document.body.className = theme; // 'dark' or 'light'
+    }, [theme]);
+
     return (
         <div className={`app-container ${theme}`}>
             <header className="app-header">
@@ -200,7 +205,7 @@ const FGDBuilder = () => {
                             value={filterText}
                             onChange={(e) => {
                                 setFilterText(e.target.value);
-                                setFilterType('All'); // Reset type filter when name changes
+                                // setFilterType('All'); // Remove this line!
                             }}
                             aria-label="Filter entities by name"
                         />

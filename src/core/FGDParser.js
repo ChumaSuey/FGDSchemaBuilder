@@ -174,16 +174,25 @@ export function parseFGD(fgdText) {
             includes: [],
         },
         entities: [],
+        comments: [], // <-- Add this!
     };
 
-    // 1. Pre-processing: Remove C-style comments and normalize line endings
-    const cleanText = fgdText
-        .replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '') // Remove multi-line and single-line comments
-        .replace(/\r\n/g, '\n') // Normalize line endings
-        .trim();
+    // Normalize line endings
+    const lines = fgdText.replace(/\r\n/g, '\n').split('\n');
 
-    // 2. Parse top-level directives
-    const mapsizeMatch = cleanText.match(/@mapsize\s*\(\s*(-?\d+)\s*,\s*(-?\d+)\s*\)/);
+    // 1. Collect global comments at the top
+    let i = 0;
+    while (i < lines.length && lines[i].trim().startsWith('//')) {
+        // Remove the leading // and any leading space after it
+        schema.comments.push(lines[i].replace(/^\/\/\s?/, ''));
+        i++;
+    }
+
+    // 2. Re-join the rest for further parsing
+    const restText = lines.slice(i).join('\n');
+
+    // 3. Parse top-level directives
+    const mapsizeMatch = restText.match(/@mapsize\s*\(\s*(-?\d+)\s*,\s*(-?\d+)\s*\)/);
     if (mapsizeMatch) {
         schema.metadata.mapsize = {
             min: parseInt(mapsizeMatch[1], 10),
@@ -191,19 +200,16 @@ export function parseFGD(fgdText) {
         };
     }
 
-    const includeMatches = [...cleanText.matchAll(/@include\s*"([^"]+)"/g)];
+    const includeMatches = [...restText.matchAll(/@include\s*"([^"]+)"/g)];
     schema.metadata.includes = includeMatches.map(match => match[1]);
 
-    // 3. Parse entity blocks
-    // This regex is the core of the parser. It's designed to be flexible.
-    // It captures the class type, all the header content before the '=', the name, description, and body.
+    // 4. Parse entity blocks (same as before)
     const entityRegex = /@(\w+)\s*([\s\S]*?)\s*=\s*(\w+)\s*(?::\s*"([^"]*)")?\s*(?:\[([\s\S]*?)\])?/g;
 
     let match;
-    while ((match = entityRegex.exec(cleanText)) !== null) {
-        // We need to ensure we don't re-process text inside a matched block
+    while ((match = entityRegex.exec(restText)) !== null) {
         if (match.index > entityRegex.lastIndex) {
-             entityRegex.lastIndex = match.index;
+            entityRegex.lastIndex = match.index;
         }
 
         const [, classType, header, name, description, body] = match;

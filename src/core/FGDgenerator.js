@@ -116,6 +116,11 @@ export function generateFGD(schema) {
 
     let output = [];
 
+    // 0. Output global comments if present
+    if (schema.comments && Array.isArray(schema.comments)) {
+        output.push(...schema.comments.map(comment => `// ${comment}`));
+    }
+
     // 1. Generate Metadata
     if (schema.metadata) {
         if (schema.metadata.mapsize) {
@@ -128,7 +133,15 @@ export function generateFGD(schema) {
 
     // 2. Generate Entities
     if (schema.entities && schema.entities.length > 0) {
-        output.push(...schema.entities.map(entity => generateEntity(entity)));
+        output.push(...schema.entities.map(entity => {
+            // Output entity comments if present
+            let entityBlock = [];
+            if (entity.comments && Array.isArray(entity.comments)) {
+                entityBlock.push(...entity.comments.map(comment => `// ${comment}`));
+            }
+            entityBlock.push(generateEntity(entity));
+            return entityBlock.join('\n');
+        }));
     }
 
     // Join all parts with double newlines for spacing between top-level definitions

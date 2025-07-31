@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFGD } from '../context/FGDContext';
-// We will create and import these later
 import { PropertyList } from './PropertyList';
-// import './EntityEditor.css';
+import './EntityEditor.css';
 
 const ENTITY_CLASS_TYPES = ['PointClass', 'SolidClass', 'BaseClass'];
+const PROPERTY_TYPES = ['string', 'integer', 'float', 'boolean', 'choices', 'flags', 'custom'];
 
 export const EntityEditor = () => {
     const { state, dispatch } = useFGD();
+
+    // Move useState hooks here, before any return!
+    const [name, setName] = useState('');
+    const [type, setType] = useState('string');
 
     const selectedEntity = state.entities.find(
         (e) => e.id === state.selectedEntityId
@@ -46,6 +50,26 @@ export const EntityEditor = () => {
     if (selectedEntity && !availableClassTypes.includes(selectedEntity.classType)) {
         availableClassTypes.push(selectedEntity.classType);
     }
+
+    const handleAdd = () => {
+        if (!name.trim()) return;
+        dispatch({
+            type: 'ADD_PROPERTY',
+            payload: {
+                entityId: selectedEntity.id,
+                property: {
+                    id: crypto.randomUUID(),
+                    name,
+                    type,
+                    displayName: '',
+                    defaultValue: '',
+                    description: '',
+                }
+            }
+        });
+        setName('');
+        setType('string');
+    };
 
     return (
         <div className="entity-editor">
@@ -101,6 +125,31 @@ export const EntityEditor = () => {
             {/* This is where the PropertyList component will go */}
             <div className="property-list-container">
                 <PropertyList entityId={selectedEntity.id} />
+            </div>
+
+            <div>
+                <h3>Add Property</h3>
+                <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        placeholder="Property Name"
+                    />
+                    <select
+                        value={type}
+                        onChange={e => setType(e.target.value)}
+                    >
+                        {PROPERTY_TYPES.map(t => (
+                            <option key={t} value={t}>{t}</option>
+                        ))}
+                    </select>
+                    <button
+                        onClick={handleAdd}
+                    >
+                        Add Property
+                    </button>
+                </div>
             </div>
         </div>
     );

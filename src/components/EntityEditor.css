@@ -1,0 +1,92 @@
+.entity-editor {
+    background: var(--bg-main);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+}
+
+.entity-editor-header {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entity-editor-header h2 {
+    color: var(--text-accent);
+}
+
+.entity-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #b5e0ff;
+    margin-bottom: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: #181b20;
+    color: #e0e0e0;
+    border: 1px solid #333a45;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border: 1.5px solid #4caf50;
+    outline: none;
+}
+
+.property-list-container {
+    margin-bottom: 24px;
+}
+
+h3 {
+    margin-top: 0;
+    color: #b5e0ff;
+}
+
+.entity-editor-placeholder {
+    background: #23272e;
+    border-radius: 10px;
+    padding: 32px;
+    color: #aaa;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 400px;
+}
+
+button {
+    background: var(--btn-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: var(--btn-primary-hover);
+}

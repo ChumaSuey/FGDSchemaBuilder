@@ -90,20 +90,12 @@ const fgdReducer = (state, action) => {
         }
 
         case 'ADD_PROPERTY': {
-            const { entityId } = action.payload;
-            const newProperty = {
-                id: crypto.randomUUID(),
-                name: 'new_property',
-                type: 'string',
-                displayName: '',
-                defaultValue: '',
-                description: '',
-            };
+            const { entityId, property } = action.payload;
             return {
                 ...state,
                 entities: state.entities.map(entity =>
                     entity.id === entityId
-                        ? { ...entity, properties: [...entity.properties, newProperty] }
+                        ? { ...entity, properties: [...(entity.properties || []), property] }
                         : entity
                 ),
             };

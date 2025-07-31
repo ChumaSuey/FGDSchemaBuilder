@@ -459,3 +459,40 @@ label {
     text-align: center;
     color: var(--placeholder-text-color);
 }
+
+/* New Variables for Alternate Theme */
+:root {
+    --bg-main: #23272e;
+    --bg-panel: #181b20;
+    --bg-accent: #22262c;
+    --text-main: #e0e0e0;
+    --text-accent: #b5e0ff;
+    --border-main: #333a45;
+    --btn-primary: #1976d2;
+    --btn-primary-hover: #1565c0;
+    --btn-success: #4caf50;
+    --btn-success-hover: #388e3c;
+    --btn-danger: #e53935;
+    --btn-danger-hover: #b71c1c;
+    --shadow: 0 2px 10px rgba(0,0,0,0.13);
+}
+
+/* Light mode overrides */
+body.light,
+:root.light {
+    --bg-main: #f5f7fa;
+    --bg-panel: #fff;
+    --bg-accent: #f0f4f8;
+    --text-main: #222;
+    --text-accent: #1976d2;
+    --border-main: #cfd8dc;
+    --btn-primary: #1976d2;
+    --btn-primary-hover: #1565c0;
+    --btn-success: #388e3c;
+    --btn-success-hover: #2e7031;
+    --btn-danger: #e53935;
+    --btn-danger-hover: #b71c1c;
+    --shadow: 0 2px 10px rgba(0,0,0,0.06);
+    --entity-name: #1976d2;      /* A strong blue for entity names */
+    --property-name: #388e3c;    /* A strong green for property names */
+}

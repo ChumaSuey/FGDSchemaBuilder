@@ -1,4 +1,5 @@
 import React from 'react';
+import './EntityList.css';
 import { useFGD } from '../context/FGDContext';
 import {
     DndContext,

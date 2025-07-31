@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFGD } from '../context/FGDContext';
 import { generateFGD } from '../core/FGDgenerator.js';
-// import './FGDPreview.css'; // For styling later
+import './FGDPreview.css'; // For styling later
 
 export const FGDPreview = () => {
     const { state } = useFGD();

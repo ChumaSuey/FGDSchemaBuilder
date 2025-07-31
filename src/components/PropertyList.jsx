@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFGD } from '../context/FGDContext';
 import { PropertyEditor } from './PropertyEditor';
-// import './PropertyList.css'; // For styling later
+import './PropertyList.css'; // For styling later
 
 export const PropertyList = ({ entityId }) => {
     const { state, dispatch } = useFGD();
@@ -17,7 +17,17 @@ export const PropertyList = ({ entityId }) => {
     const handleAddProperty = () => {
         dispatch({
             type: 'ADD_PROPERTY',
-            payload: { entityId },
+            payload: {
+                entityId,
+                property: {
+                    id: crypto.randomUUID(),
+                    name: 'new_property',
+                    type: 'string',
+                    displayName: '',
+                    defaultValue: '',
+                    description: '',
+                }
+            },
         });
     };
 
@@ -39,7 +49,7 @@ export const PropertyList = ({ entityId }) => {
                 </button>
             </header>
             <div className="properties-container">
-                {entity.properties.map((prop) => (
+                {(entity.properties || []).map((prop) => (
                     <div key={prop.id} className="property-row">
                         <PropertyEditor entityId={entityId} property={prop} />
                         <button
@@ -51,7 +61,7 @@ export const PropertyList = ({ entityId }) => {
                         </button>
                     </div>
                 ))}
-                {entity.properties.length === 0 && (
+                {(entity.properties || []).length === 0 && (
                     <p className="no-properties-message">This entity has no properties. Click "Add Property" to begin.</p>
                 )}
             </div>
