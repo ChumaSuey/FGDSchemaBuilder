@@ -1,0 +1,2065 @@
+{
+  "metadata": {
+    "mapsize": {
+      "min": 0,
+      "max": 0
+    },
+    "includes": null
+  },
+  "entities": [
+    {
+      "id": "c2b34c62-1b68-4299-97dd-49734ada12b6",
+      "classType": "SolidClass",
+      "name": "worldspawn",
+      "description": "World entity",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "d71c6ce4-5bdd-4308-adf1-b8baabb8f1cd",
+          "name": "message",
+          "type": "string",
+          "displayName": "Text on entering the world",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "48fea410-ab65-49d2-807f-4987a22200f7",
+          "name": "worldtype",
+          "type": "choices",
+          "displayName": "Ambience",
+          "defaultValue": "0",
+          "description": ""
+        },
+        {
+          "id": "dc0c88db-2276-48a7-8e0e-4419c737bf5e",
+          "name": "Metal",
+          "type": "runic",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "271f086d-f3e0-4df8-ba5b-5a070fac754b",
+      "classType": "baseclass",
+      "name": "Angle",
+      "description": "",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "0dcc2d60-ab4a-40f9-8188-1c1420d13436",
+          "name": "angle",
+          "type": "integer",
+          "displayName": "Direction",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "80534659-9a39-459c-af65-b50f28ca8a85",
+      "classType": "baseclass",
+      "name": "Appearflags",
+      "description": "",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "2c5c32fc-0474-4b85-9a48-a837ef6e5c51",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "4ba97689-2c24-41e4-a3de-07a0812a9d12",
+      "classType": "baseclass",
+      "name": "Targetname",
+      "description": "",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "2f3a366d-b5de-4d28-b24b-9c9a60de45c0",
+          "name": "targetname",
+          "type": "target_source",
+          "displayName": "Name",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "775b84d4-5567-415d-b1bd-35e2c746029f",
+      "classType": "baseclass",
+      "name": "Target",
+      "description": "",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "3b49ecb1-6dd0-4ad8-9b84-8fce0a699520",
+          "name": "target",
+          "type": "target_destination",
+          "displayName": "Target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "16853a39-ab8c-4098-aa36-2b22a85380bd",
+          "name": "killtarget",
+          "type": "target_destination",
+          "displayName": "Killtarget",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "c06f49f7-1137-4034-8dce-6823974edb35",
+      "classType": "baseclass",
+      "name": "PlayerClass",
+      "description": "",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "0 255 0",
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "bedf025e-d151-449c-a230-326e60831a99",
+      "classType": "PointClass",
+      "name": "info_player_start",
+      "description": "Player 1 start",
+      "baseClasses": [
+        "PlayerClass"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "b9e0dbee-ccbc-45ba-87cd-5ea169032ea7",
+      "classType": "PointClass",
+      "name": "info_player_coop",
+      "description": "Player cooperative start",
+      "baseClasses": [
+        "PlayerClass"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "f043745c-75cb-462c-9ade-f878b99ccc3a",
+      "classType": "PointClass",
+      "name": "info_player_start2",
+      "description": "Player episode return point",
+      "baseClasses": [
+        "PlayerClass"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "ed4b5b49-68ed-476a-9e6c-9bd16789492b",
+      "classType": "PointClass",
+      "name": "info_player_deathmatch",
+      "description": "Deathmatch start",
+      "baseClasses": [
+        "PlayerClass"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "31b17682-d351-4b4b-9a71-863931e9cb35",
+      "classType": "PointClass",
+      "name": "testplayerstart",
+      "description": "Testing player start",
+      "baseClasses": [
+        "PlayerClass"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "aa1d6a51-c279-4a15-aa69-868466d7ab0d",
+      "classType": "PointClass",
+      "name": "info_teleport_destination",
+      "description": "Teleporter destination",
+      "baseClasses": [
+        "PlayerClass",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-32 -32 0, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "66112304-3b25-49c8-aa7f-20e91d8534bd",
+      "classType": "PointClass",
+      "name": "info_null",
+      "description": "info_null (spotlight target)",
+      "baseClasses": null,
+      "helpers": {
+        "color": "200 150 150"
+      },
+      "properties": [
+        {
+          "id": "6033b97e-b345-4279-bfc8-2acb90c70569",
+          "name": "targetname",
+          "type": "target_source",
+          "displayName": "Name",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "e97f7e3d-47b4-4426-afa3-c40431fda5f0",
+      "classType": "PointClass",
+      "name": "info_notnull",
+      "description": "Wildcard entity",
+      "baseClasses": [
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "color": "200 150 150"
+      },
+      "properties": [
+        {
+          "id": "63cf80a0-6ad2-4db0-b2c6-b4057b405972",
+          "name": "use",
+          "type": "string",
+          "displayName": "self.use",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "c508b612-3db5-4c1d-a0d3-18c4bd048642",
+          "name": "think",
+          "type": "string",
+          "displayName": "self.think",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "165a9c7e-ea97-421a-b238-9f8a89838b93",
+          "name": "nextthink",
+          "type": "integer",
+          "displayName": "nextthink",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "dd3a40a6-3283-429f-86d8-18e76d4ad566",
+          "name": "noise",
+          "type": "string",
+          "displayName": "noise",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "b6c6482c-a0a5-455b-9421-b546af757a24",
+          "name": "touch",
+          "type": "string",
+          "displayName": "self.touch",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "5eea1697-6d4a-4f6c-92a0-1393a8fd5086",
+      "classType": "PointClass",
+      "name": "info_intermission",
+      "description": "Intermission camera",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "1fb9b0c9-50ee-4882-8c56-51fa860beed7",
+          "name": "mangle",
+          "type": "string",
+          "displayName": "Camera angle (Pitch Yaw Roll)",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "6495888e-749b-41bc-bfa5-d5fc8569e3f2",
+      "classType": "baseclass",
+      "name": "Item",
+      "description": "",
+      "baseClasses": [
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "dbf36acd-ec76-4614-96a9-83607cd88ed1",
+          "name": "message",
+          "type": "string",
+          "displayName": "Message",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "113b3613-cf42-4e6e-bce8-54efac17e6bf",
+          "name": "target",
+          "type": "string",
+          "displayName": "Target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "5a4d7fb6-36e1-4294-943c-ba7d1c99a273",
+          "name": "killtarget",
+          "type": "string",
+          "displayName": "Killtarget",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "40d01cc6-2f1e-4e29-8e99-204c73fa15b7",
+          "name": "delay",
+          "type": "integer",
+          "displayName": "Delay",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "e62dfbad-71ae-4e12-afaf-4ec3fceed08f",
+      "classType": "baseclass",
+      "name": "Ammo",
+      "description": "",
+      "baseClasses": [
+        "Item"
+      ],
+      "helpers": {
+        "color": "80 0 200",
+        "size": "0 0 0, 32 32 56"
+      },
+      "properties": [
+        {
+          "id": "e4f72d45-8848-4569-9ffe-19fd501505b7",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "8328a8a3-e153-4709-948b-6f5af0c87799",
+      "classType": "PointClass",
+      "name": "item_cells",
+      "description": "Thunderbolt ammo",
+      "baseClasses": [
+        "Ammo"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "07e98d07-8f43-4d96-9abe-4e517667f4f8",
+      "classType": "PointClass",
+      "name": "item_rockets",
+      "description": "Rockets",
+      "baseClasses": [
+        "Ammo"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "5ea28689-8120-4790-a684-fa9d4443eee5",
+      "classType": "PointClass",
+      "name": "item_shells",
+      "description": "Shells",
+      "baseClasses": [
+        "Ammo"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "3a02ebd7-f2be-4f26-a080-defb92061e94",
+      "classType": "PointClass",
+      "name": "item_spikes",
+      "description": "Nailgun/Perforator ammo",
+      "baseClasses": [
+        "Ammo"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "b2687949-9096-4910-8548-d7148378d198",
+      "classType": "PointClass",
+      "name": "item_health",
+      "description": "Health pack",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "0 0 0, 32 32 56"
+      },
+      "properties": [
+        {
+          "id": "b5349141-81f3-469f-ae40-3a6079deaa92",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "96405f78-6a0d-4808-809a-19606e69395c",
+      "classType": "PointClass",
+      "name": "item_artifact_envirosuit",
+      "description": "Environmental protection suit",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "78ebc68f-4e26-4fa6-a6f7-720e0c453245",
+      "classType": "PointClass",
+      "name": "item_artifact_super_damage",
+      "description": "Quad damage",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "280fb4f0-d434-432d-bc51-739d7643b503",
+      "classType": "PointClass",
+      "name": "item_artifact_invulnerability",
+      "description": "Pentagram of Protection",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "501ef2fe-8acf-4383-8225-c3ba82cc03b0",
+      "classType": "PointClass",
+      "name": "item_artifact_invisibility",
+      "description": "Ring of Shadows",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "28f1139e-566e-423f-a67e-ede42c79053d",
+      "classType": "PointClass",
+      "name": "item_armorInv",
+      "description": "Red armor (200%)",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 0, 16 16 56"
+      },
+      "properties": []
+    },
+    {
+      "id": "35bd24f6-1aad-4b2a-a36a-e6a026522512",
+      "classType": "PointClass",
+      "name": "item_armor2",
+      "description": "Yellow armor (150%)",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 0, 16 16 56"
+      },
+      "properties": []
+    },
+    {
+      "id": "7e7573aa-5df0-4f3c-94a6-5e027b157f98",
+      "classType": "PointClass",
+      "name": "item_armor1",
+      "description": "Green armor (100%)",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 0, 16 16 56"
+      },
+      "properties": []
+    },
+    {
+      "id": "7d5b863e-84c0-4acd-b1f9-fcc291b4346d",
+      "classType": "PointClass",
+      "name": "item_key1",
+      "description": "Silver key",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "900b12fd-6f75-4123-a8bb-02e54382db18",
+      "classType": "PointClass",
+      "name": "item_key2",
+      "description": "Gold key",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "19fb9feb-4077-4d37-9451-8978b7f2f3a9",
+      "classType": "PointClass",
+      "name": "item_sigil",
+      "description": "Sigil",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": [
+        {
+          "id": "6caae72c-01d0-4ae2-8ad9-7ab145a57095",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "a1b6758d-2886-465c-882a-727fde36fb24",
+      "classType": "baseclass",
+      "name": "Weapon",
+      "description": "",
+      "baseClasses": [
+        "Item",
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "0 0 200",
+        "size": "-16 -16 0, 16 16 56"
+      },
+      "properties": []
+    },
+    {
+      "id": "33ffe18b-04b9-44e8-b7e4-8887f0ff3b8c",
+      "classType": "PointClass",
+      "name": "weapon_supershotgun",
+      "description": "Double-barrelled shotgun",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "40828b2d-32c5-4761-8b25-956b796fad61",
+      "classType": "PointClass",
+      "name": "weapon_nailgun",
+      "description": "Nailgun",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "9a82e0aa-cbe1-4b75-8d90-7af40aa9cae2",
+      "classType": "PointClass",
+      "name": "weapon_supernailgun",
+      "description": "Super nailgun",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "940ec807-c10e-4188-93af-25f79747ed14",
+      "classType": "PointClass",
+      "name": "weapon_grenadelauncher",
+      "description": "Grenade launcher",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "a460ecb9-0775-445b-9f73-1c1201b78aac",
+      "classType": "PointClass",
+      "name": "weapon_rocketlauncher",
+      "description": "Rocket launcher",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "8ef7a084-5ac6-4935-8748-582d0f6dbf42",
+      "classType": "PointClass",
+      "name": "weapon_lightning",
+      "description": "Thunderbolt",
+      "baseClasses": [
+        "Weapon"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "2fbfd4ba-770f-4159-aa3d-98ca6492fdde",
+      "classType": "baseclass",
+      "name": "Monster",
+      "description": "",
+      "baseClasses": [
+        "Angle",
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "color": "220 0 0"
+      },
+      "properties": [
+        {
+          "id": "8901c6d5-aaed-4258-92d8-098df996d8e8",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "fbe8fe7b-a575-42a9-a694-79ff02d414b9",
+      "classType": "PointClass",
+      "name": "monster_army",
+      "description": "Grunt",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "7f90008f-b2a0-48f9-9e5c-851b09893809",
+      "classType": "PointClass",
+      "name": "monster_dog",
+      "description": "Nasty Doggie",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "6f65a261-b472-47b3-a8df-7a68a0875a97",
+      "classType": "PointClass",
+      "name": "monster_ogre",
+      "description": "Ogre",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "17b4d2d0-6ae6-4fc6-a103-6fe9915eaf91",
+      "classType": "PointClass",
+      "name": "monster_ogre_marksman",
+      "description": "Ogre marksman",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "24cf7b8a-c1d8-4ac8-a436-b8eefc2a7947",
+      "classType": "PointClass",
+      "name": "monster_knight",
+      "description": "Knight",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "3850b15e-0df5-4cf2-b0e1-06a7423b13ea",
+      "classType": "PointClass",
+      "name": "monster_hell_knight",
+      "description": "Hell knight",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "b5b0769e-2247-4f9a-86a8-05389f1b6b0d",
+      "classType": "PointClass",
+      "name": "monster_wizard",
+      "description": "Scrag",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "8658b904-ba78-4d62-9c2c-2226433d848b",
+      "classType": "PointClass",
+      "name": "monster_demon1",
+      "description": "Fiend",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "de8b41b7-213a-4b1e-acb9-bdb6edfe1d53",
+      "classType": "PointClass",
+      "name": "monster_shambler",
+      "description": "Shambler",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "3bb95f7e-b9f5-4ef0-bf5a-26cd8291318d",
+      "classType": "PointClass",
+      "name": "monster_boss",
+      "description": "Chthon",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-128 -128 -24, 128 128 256"
+      },
+      "properties": []
+    },
+    {
+      "id": "005d454f-7996-4ff6-9895-0fd109cb59ad",
+      "classType": "PointClass",
+      "name": "monster_enforcer",
+      "description": "Enforcer",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 40"
+      },
+      "properties": []
+    },
+    {
+      "id": "d16027f0-b83a-41f9-8662-d445ba03f94d",
+      "classType": "PointClass",
+      "name": "monster_shalrath",
+      "description": "Vore",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-32 -32 -24, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "bfec948f-dc84-4455-9e52-e591be172dda",
+      "classType": "PointClass",
+      "name": "monster_tarbaby",
+      "description": "Spawn",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 24"
+      },
+      "properties": []
+    },
+    {
+      "id": "3330a5fe-f644-43ff-b2fc-25d93cf54be9",
+      "classType": "PointClass",
+      "name": "monster_fish",
+      "description": "Rotfish",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 24"
+      },
+      "properties": []
+    },
+    {
+      "id": "5fce7893-fb53-4038-bb64-12df25b5d8cf",
+      "classType": "PointClass",
+      "name": "monster_oldone",
+      "description": "Shub-Niggurath",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "ad8c7231-dd10-44be-b2e1-f7865673da95",
+      "classType": "PointClass",
+      "name": "monster_zombie",
+      "description": "Zombie",
+      "baseClasses": [
+        "Monster"
+      ],
+      "helpers": {
+        "size": "-16 -16 -24, 16 16 32"
+      },
+      "properties": [
+        {
+          "id": "f6cba6b6-80f1-4f3f-91c5-eed6ffe30217",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "c70c2b9f-e995-4fb5-ac47-2c217bfe2682",
+      "classType": "baseclass",
+      "name": "Light",
+      "description": "",
+      "baseClasses": null,
+      "helpers": {
+        "color": "255 255 40"
+      },
+      "properties": [
+        {
+          "id": "4e77ba50-a805-4d42-901e-13df0465481d",
+          "name": "light",
+          "type": "integer",
+          "displayName": "Brightness",
+          "defaultValue": "300",
+          "description": ""
+        },
+        {
+          "id": "41e23306-3788-4e3f-92bf-6184b4e3c57c",
+          "name": "wait",
+          "type": "integer",
+          "displayName": "Fade distance multiplier",
+          "defaultValue": "1",
+          "description": ""
+        },
+        {
+          "id": "b52bce28-9e1a-4287-a54c-42467cded2a9",
+          "name": "delay",
+          "type": "choices",
+          "displayName": "Attenuation",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "dfdaae15-77ae-4404-8af9-7d5eb85a4f23",
+          "name": "falloff",
+          "type": "Default",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "3462f600-1a14-43ae-b91a-c76de1bbb674",
+      "classType": "PointClass",
+      "name": "light",
+      "description": "Invisible light source",
+      "baseClasses": [
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-8 -8 -8, 8 8 8"
+      },
+      "properties": [
+        {
+          "id": "e9fccece-8bb1-4580-a34a-a9cffa6ddac5",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "f9faed73-037a-415a-8ca7-f550ebc749c4",
+      "classType": "PointClass",
+      "name": "light_fluoro",
+      "description": "Fluorescent light",
+      "baseClasses": [
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-8 -8 -8, 8 8 8"
+      },
+      "properties": [
+        {
+          "id": "c235570a-f903-4ac3-8e3a-8335c8cb24c4",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "98e331f9-f2a6-4479-b69b-4a350856ce6e",
+      "classType": "PointClass",
+      "name": "light_fluorospark",
+      "description": "Sparking fluorescent light",
+      "baseClasses": [
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-8 -8 -8, 8 8 8"
+      },
+      "properties": [
+        {
+          "id": "95eee389-c44a-483a-b439-3f4d27602fcf",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "278d2e1e-9e3a-4930-90e6-b292004448c3",
+      "classType": "PointClass",
+      "name": "light_globe",
+      "description": "Globe light",
+      "baseClasses": [
+        "Appearflags",
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-8 -8 -8, 8 8 8"
+      },
+      "properties": [
+        {
+          "id": "48ceac19-391a-4f42-940a-188027c754b6",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "ae06d7ee-9c3b-4b2c-8d89-e4a8892cc32a",
+      "classType": "PointClass",
+      "name": "light_flame_large_yellow",
+      "description": "Large yellow flame",
+      "baseClasses": [
+        "Appearflags",
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-8 -8 -12, 8 8 20"
+      },
+      "properties": [
+        {
+          "id": "5fc53722-f683-4ff3-8eb2-9ce9a97cb225",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "0962cd71-dc1f-4414-829b-263da807bd2f",
+      "classType": "PointClass",
+      "name": "light_flame_small_yellow",
+      "description": "Small yellow flame",
+      "baseClasses": [
+        "Appearflags",
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-4 -4 -12, 4 4 20"
+      },
+      "properties": [
+        {
+          "id": "9261f7a5-9d25-40e9-b784-01aa1a99d8cd",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "f23328b6-59d9-44bb-b0e2-a9dddadc3629",
+      "classType": "PointClass",
+      "name": "light_flame_small_white",
+      "description": "Small white flame",
+      "baseClasses": [
+        "Appearflags",
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-4 -4 -12, 4 4 20"
+      },
+      "properties": [
+        {
+          "id": "c5f99e59-ee8a-4184-8fd4-cd1504439731",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "9438135f-0a7d-4a8b-8c2b-871b6b94758d",
+      "classType": "PointClass",
+      "name": "light_torch_small_walltorch",
+      "description": "Small walltorch",
+      "baseClasses": [
+        "Appearflags",
+        "Light",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {
+        "size": "-4 -4 -12, 4 4 20"
+      },
+      "properties": []
+    },
+    {
+      "id": "654df2c1-f959-4d73-aa62-eab3c10726d7",
+      "classType": "SolidClass",
+      "name": "func_illusionary",
+      "description": "Static nonsolid model",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "3213d686-a307-4a37-ad4d-9410cddc22fb",
+      "classType": "PointClass",
+      "name": "air_bubbles",
+      "description": "Air bubbles",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "0 150 220"
+      },
+      "properties": []
+    },
+    {
+      "id": "221828c4-5de4-4b85-ad89-d9b8ad86ad0d",
+      "classType": "PointClass",
+      "name": "event_lightning",
+      "description": "Chthon's lightning",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "a9e69665-4300-46eb-856a-953d943d5022",
+      "classType": "PointClass",
+      "name": "misc_fireball",
+      "description": "Small fireball",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "b6c2d49e-d154-426b-9765-060ff1508e72",
+          "name": "speed",
+          "type": "integer",
+          "displayName": "Speed",
+          "defaultValue": "40",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "f6c46e87-a593-4b65-b2df-78d8c5960261",
+      "classType": "PointClass",
+      "name": "misc_explobox",
+      "description": "Large exploding container",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "0 0 0, 32 32 64"
+      },
+      "properties": []
+    },
+    {
+      "id": "5f7b9e56-2e87-4dc8-bf65-8f952e50dc1a",
+      "classType": "PointClass",
+      "name": "misc_explobox2",
+      "description": "Small exploding container",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "0 0 0, 32 32 32"
+      },
+      "properties": []
+    },
+    {
+      "id": "796da76d-5dbc-4573-9419-31df2d8afb80",
+      "classType": "PointClass",
+      "name": "misc_teleporttrain",
+      "description": "Flying teleporter destination",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "size": "-8 -8 -8, 8 8 8"
+      },
+      "properties": [
+        {
+          "id": "09fe07ec-a8a7-46e8-90cc-32d23074a8f7",
+          "name": "target",
+          "type": "string",
+          "displayName": "First stop target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "8c246338-6378-443d-8f10-75f96921508e",
+          "name": "targetname",
+          "type": "target_source",
+          "displayName": "Name",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "cbed1628-0ed2-411b-897d-3fe792eaf731",
+      "classType": "PointClass",
+      "name": "trap_spikeshooter",
+      "description": "Triggered shooter",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {
+        "color": "220 150 150"
+      },
+      "properties": [
+        {
+          "id": "defafcf5-a83a-4958-9f49-77eb416d31e0",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "11d4e73d-128a-4b65-912b-ff0c6a478322",
+      "classType": "PointClass",
+      "name": "trap_shooter",
+      "description": "Continuous shooter",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "220 150 150"
+      },
+      "properties": [
+        {
+          "id": "dcc26d5b-99ff-499f-aae4-30178c5a8a37",
+          "name": "nextthink",
+          "type": "integer",
+          "displayName": "Delay before first spike",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "ff4b1e26-84fe-45a4-848f-2bed7b38737f",
+          "name": "wait",
+          "type": "integer",
+          "displayName": "Delay between spikes",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "4213e632-a194-48c7-b106-15d79db7b4df",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "718fd99d-7db7-4d4e-809f-93322ed4e1e8",
+      "classType": "SolidClass",
+      "name": "func_group",
+      "description": "Group of brushes for in-editor use",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "13f576fb-534d-4ac1-89c5-c80a22b4eb91",
+      "classType": "SolidClass",
+      "name": "func_detail",
+      "description": "Group of brushes for certain compilers",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "bbbabb2c-0109-4cde-a54d-e53e802af9ef",
+      "classType": "SolidClass",
+      "name": "func_detail_illusionary",
+      "description": "func_detail variant with no collision (players / monsters / gunfire) and doesn't split world faces.",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "a399be0c-87e9-4af5-a948-85f7c4cd2e31",
+      "classType": "SolidClass",
+      "name": "func_detail_wall",
+      "description": "func_detail variant that doesn't split world faces.",
+      "baseClasses": [],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "bd459c81-3568-4139-b908-9a1bdd3b36be",
+      "classType": "PointClass",
+      "name": "ambient_drip",
+      "description": "Dripping sound",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "a1736644-b433-43ed-a08b-d4718bcbe3a0",
+      "classType": "PointClass",
+      "name": "ambient_drone",
+      "description": "Engine/machinery sound",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "04acaf89-6507-494a-9180-9effe04d4903",
+      "classType": "PointClass",
+      "name": "ambient_comp_hum",
+      "description": "Computer background sounds",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "6c36c184-cf0d-4bde-914b-641536343eb1",
+      "classType": "PointClass",
+      "name": "ambient_flouro_buzz",
+      "description": "Fluorescent buzzing sound",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "cbd82de2-02ed-45d6-9a15-4f6c8c08a773",
+      "classType": "PointClass",
+      "name": "ambient_light_buzz",
+      "description": "Buzzing sound from light",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "f8a0a55e-c832-48b9-ab83-94d85c3632ad",
+      "classType": "PointClass",
+      "name": "ambient_suck_wind",
+      "description": "Wind sound",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "19ad692b-4ae4-494a-9359-eef950ff8eb0",
+      "classType": "PointClass",
+      "name": "ambient_swamp1",
+      "description": "Frogs croaking",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "eee1042a-9722-46b8-a99b-39cf43811957",
+      "classType": "PointClass",
+      "name": "ambient_swamp2",
+      "description": "Frogs croaking B",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "d54f5aee-1999-4173-8474-eb2b2420c3ae",
+      "classType": "PointClass",
+      "name": "ambient_thunder",
+      "description": "Thunder sound",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {
+        "color": "150 0 150"
+      },
+      "properties": []
+    },
+    {
+      "id": "efdb05f6-67d2-4d9a-a285-413923a153a6",
+      "classType": "SolidClass",
+      "name": "func_door",
+      "description": "Basic door",
+      "baseClasses": [
+        "Angle",
+        "Appearflags",
+        "Targetname",
+        "Target"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "98d7158e-d290-4b0c-9344-669f2f452255",
+          "name": "speed",
+          "type": "integer",
+          "displayName": "Speed",
+          "defaultValue": "100",
+          "description": ""
+        },
+        {
+          "id": "5bf97f80-2a40-4fe8-88be-e653f7c50dee",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sound",
+          "defaultValue": "0",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "e9032aa7-8156-41d3-9857-ec3555ea5065",
+      "classType": "SolidClass",
+      "name": "func_door_secret",
+      "description": "Secret door",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname",
+        "Target"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "31736a10-3eec-4241-8af8-aa39306574ae",
+          "name": "angle",
+          "type": "integer",
+          "displayName": "Direction of second move",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "41f8b4af-7696-4ad0-91aa-0fb93c813479",
+          "name": "t_width",
+          "type": "integer",
+          "displayName": "First move length",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "d689e2fd-20a2-49e1-9a51-9f129e454c85",
+          "name": "t_length",
+          "type": "integer",
+          "displayName": "Second move length",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "3871e43e-9fa8-4881-aee0-21fb9ba330c5",
+          "name": "dmg",
+          "type": "integer",
+          "displayName": "Damage when blocked",
+          "defaultValue": "2",
+          "description": ""
+        },
+        {
+          "id": "d3a6cc06-81d5-4e77-8d3b-17df9e24b695",
+          "name": "wait",
+          "type": "string",
+          "displayName": "Wait before close",
+          "defaultValue": "2",
+          "description": ""
+        },
+        {
+          "id": "dce585a2-819c-446c-86c9-08d44411de89",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sounds",
+          "defaultValue": "3",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "a0cf427a-9536-44fd-8eec-c273a4670781",
+      "classType": "SolidClass",
+      "name": "func_wall",
+      "description": "Wall, starts animation when triggered (if supporting texture)",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "5784a5e7-d21d-4501-a163-316d67234602",
+      "classType": "SolidClass",
+      "name": "func_button",
+      "description": "Button",
+      "baseClasses": [
+        "Angle",
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "a8777afe-54d6-4a6b-838a-f1799e69f066",
+          "name": "speed",
+          "type": "integer",
+          "displayName": "Speed",
+          "defaultValue": "40",
+          "description": ""
+        },
+        {
+          "id": "bbea0237-5ee1-4309-a35c-f7568d3e9927",
+          "name": "lip",
+          "type": "integer",
+          "displayName": "Lip",
+          "defaultValue": "4",
+          "description": ""
+        },
+        {
+          "id": "c474381e-1c4a-4c7a-81c7-8853a9331c8c",
+          "name": "target",
+          "type": "target_source",
+          "displayName": "Target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "4ff842a0-e741-4da9-a425-109aaa87eb0f",
+          "name": "health",
+          "type": "integer",
+          "displayName": "Health (shootable)",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "7c03ced9-8a92-4436-a1d5-0a4f9e7fa764",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sounds",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "7a093dc5-db87-41bf-a07a-d430181c3cae",
+      "classType": "SolidClass",
+      "name": "func_train",
+      "description": "Moving platform",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "721485a0-50ea-49fc-8e8a-4f69aac5c0ed",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sound",
+          "defaultValue": "1",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "0c16014a-da33-4855-84cf-04ef162d3e20",
+      "classType": "PointClass",
+      "name": "path_corner",
+      "description": "Waypoint for platforms and monsters",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {
+        "color": "0 255 255",
+        "size": "16 16 16"
+      },
+      "properties": [
+        {
+          "id": "910bf2e0-46c0-43b8-a209-0b693435e0ef",
+          "name": "target",
+          "type": "target_source",
+          "displayName": "Next target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "d26f99bd-2603-41c6-81ca-6403adffa604",
+          "name": "wait",
+          "type": "integer",
+          "displayName": "Wait",
+          "defaultValue": "0",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "8ba0a6d2-7699-4c60-be81-e1333281ad41",
+      "classType": "SolidClass",
+      "name": "func_plat",
+      "description": "Elevator",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "a8838910-383c-4f1a-9c71-d79763b1786a",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "245058b4-8698-4d45-86ad-22966fe328e3",
+      "classType": "SolidClass",
+      "name": "func_episodegate",
+      "description": "Episode Gate",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "c4b902c9-c260-40b7-9e49-3c4c0e02886d",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "658649a3-32eb-4d8d-afe2-59eb10c81469",
+      "classType": "SolidClass",
+      "name": "func_bossgate",
+      "description": "Boss gate",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "5aa39070-f4dc-43da-8ce6-bf7a2b8506bd",
+      "classType": "baseclass",
+      "name": "Trigger",
+      "description": "",
+      "baseClasses": [
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "f4288c1d-6571-4200-8048-a7a31deed0ac",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sound style",
+          "defaultValue": "0",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "491de8d9-1b5a-41eb-830a-7fdb7517f13b",
+      "classType": "SolidClass",
+      "name": "trigger_changelevel",
+      "description": "Trigger: Change level",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "3da80264-f0cd-4e1c-96b0-3858d72dc450",
+          "name": "map",
+          "type": "string",
+          "displayName": "Next map",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "ac3c8f8d-8847-467e-b489-9a0189a26f0f",
+          "name": "target",
+          "type": "target_destination",
+          "displayName": "Target",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "a4625117-f544-4647-b213-59e6d6fd026e",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "217defe0-999c-4dd8-bbae-e66d71b2a427",
+      "classType": "SolidClass",
+      "name": "trigger_once",
+      "description": "Trigger: Activate once",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "7c8e4a10-3802-4937-b8e1-1c94e807684f",
+          "name": "health",
+          "type": "integer",
+          "displayName": "Health (shootable)",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "0b79bf5f-3031-47d2-b79a-fa3773c88eea",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "0b78db5d-2587-4865-a9e8-5a0cc9889f9f",
+      "classType": "SolidClass",
+      "name": "trigger_multiple",
+      "description": "Trigger: Activate multiple",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "70d6d17f-56e8-4ca2-ab92-7a43dd44327b",
+          "name": "wait",
+          "type": "string",
+          "displayName": "Wait before reset",
+          "defaultValue": "0.2",
+          "description": ""
+        },
+        {
+          "id": "9321917b-9034-40e3-a5e4-61d6df0fbdf1",
+          "name": "health",
+          "type": "integer",
+          "displayName": "Health (shootable)",
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "id": "c2e68d4b-7bb6-453d-b390-db048986c6bc",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "401c0176-1b25-45b2-9e6c-69a860f82726",
+      "classType": "SolidClass",
+      "name": "trigger_onlyregistered",
+      "description": "Trigger: Registered only",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "7e08db8b-4876-4d9f-b8dc-afd4f11d6ce3",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "cdb27e61-c4d9-4565-85f9-188b753d4e93",
+      "classType": "SolidClass",
+      "name": "trigger_secret",
+      "description": "Trigger: Secret",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "166eef37-385c-46e9-a5ea-807992106e21",
+          "name": "sounds",
+          "type": "choices",
+          "displayName": "Sound",
+          "defaultValue": "1",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "2923ca0e-4402-4206-96d7-a0b4cfbc4d79",
+      "classType": "SolidClass",
+      "name": "trigger_teleport",
+      "description": "Trigger: Teleporter",
+      "baseClasses": [
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "f661a705-c698-416f-b380-a20dd36bbaac",
+          "name": "spawnflags",
+          "type": "Flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "ebb7aad7-02f3-4ebc-afc7-1756073be9bf",
+      "classType": "SolidClass",
+      "name": "trigger_setskill",
+      "description": "Trigger: Set skill",
+      "baseClasses": [
+        "Appearflags"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "6f531219-2f7d-45bb-a9a8-faac6744c0f7",
+          "name": "message",
+          "type": "choices",
+          "displayName": "Skill to change to",
+          "defaultValue": "1",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "f1a4c948-b1a7-453f-9124-b8029b25348c",
+      "classType": "PointClass",
+      "name": "trigger_relay",
+      "description": "Trigger: Relay",
+      "baseClasses": [
+        "Trigger"
+      ],
+      "helpers": {},
+      "properties": []
+    },
+    {
+      "id": "45f287b7-1a24-4f96-944f-fb3f23d21ef3",
+      "classType": "SolidClass",
+      "name": "trigger_monsterjump",
+      "description": "Trigger: Monster jump",
+      "baseClasses": [
+        "Angle",
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "899a89bc-4b55-4159-97ef-b2ff37508d9c",
+          "name": "speed",
+          "type": "integer",
+          "displayName": "Jump Speed",
+          "defaultValue": "200",
+          "description": ""
+        },
+        {
+          "id": "c826157c-1d3a-49ec-b64b-0d9c287aaaa0",
+          "name": "height",
+          "type": "integer",
+          "displayName": "Jump Height",
+          "defaultValue": "200",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "9307a666-37c1-4143-ad24-2266d3f62f37",
+      "classType": "PointClass",
+      "name": "trigger_counter",
+      "description": "Trigger: Counter",
+      "baseClasses": [
+        "Appearflags",
+        "Target",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "2a8f2e79-072e-4e11-9d75-cc7a094c3f97",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "689d451b-1eac-41d3-b0ec-5a57c23f63bb",
+      "classType": "SolidClass",
+      "name": "trigger_push",
+      "description": "Trigger: Push",
+      "baseClasses": [
+        "Angle",
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "bfec07b0-8e14-4ba6-bfd4-ce358cb485cb",
+          "name": "spawnflags",
+          "type": "flags",
+          "displayName": "",
+          "defaultValue": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "322abdbb-09d0-4e00-a30a-48bcece0cc6a",
+      "classType": "SolidClass",
+      "name": "trigger_hurt",
+      "description": "Trigger: Hurt",
+      "baseClasses": [
+        "Appearflags",
+        "Targetname"
+      ],
+      "helpers": {},
+      "properties": [
+        {
+          "id": "82d86280-c017-4a05-9295-1ebe7311ef37",
+          "name": "dmg",
+          "type": "integer",
+          "displayName": "Damage per second",
+          "defaultValue": "5",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "3fc30f74-30ed-4051-8dde-219faba1549a",
+      "classType": "PointClass",
+      "name": "misc_noisemaker",
+      "description": "Debug entity: continuously plays enforcer sounds",
+      "baseClasses": null,
+      "helpers": {
+        "size": "16 16 16"
+      },
+      "properties": []
+    },
+    {
+      "id": "9e264688-0b6c-4d79-9732-83eb2e4417a0",
+      "classType": "PointClass",
+      "name": "viewthing",
+      "description": "Debug entity: fake player model",
+      "baseClasses": null,
+      "helpers": {
+        "size": "16 16 16"
+      },
+      "properties": []
+    }
+  ]
+}

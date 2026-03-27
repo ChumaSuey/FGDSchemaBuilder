@@ -12,7 +12,6 @@ export const EntityEditor = () => {
     const selectedEntity = state.entities.find(
         (e) => e.id === state.selectedEntityId
     );
-
     // If no entity is selected, show a placeholder message
     if (!selectedEntity) {
         return (
@@ -82,7 +81,7 @@ export const EntityEditor = () => {
                     <input
                         id="entity-baseClasses"
                         type="text"
-                        value={selectedEntity.baseClasses.join(', ')}
+                        value={selectedEntity?.baseClasses?.join(', ') ?? ''}
                         onChange={handleBaseClassesChange}
                     />
                 </div>
