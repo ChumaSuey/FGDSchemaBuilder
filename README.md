@@ -3,24 +3,24 @@
 (Personal text from main programmer Chuma)
 FGD Schema Builder is a React script i've made not so long ago, the idea started via a suggestion of my friend Lavender, then i proceeded to sit down the code to experiment and at least do some automation on the editing of FGD files for the level editor Trenchbroom, associated with Quake family branch games and possibly Godot... i've got help from a lot of friends and people from the Quake community, this project was not easy... i was happy with doing this and attempting to make an automation script even for experimental purposes, even if it's not optimal, hope you enjoy this documentation, thank you in advance)
 
-Note as of 1/22/2026 -- 22/01/2026 : The script is experimental as React can't have a fully functional parser and editor within the code without having some gaps, so this script/web-script is just demonstrative... In the future i hope to create this web script with a fully proper back-end and database... However the parserFGD script (that only extracts the info of the FGD files) works perfectly well. - Chuma
+Note as of 4/1/2026 : The script is functional and has backend implemented with GO... it's fully functional, i'll suggest you still do some manual handling of the file, but it doesn't delete anything from the fgd, parses and exports the file in real time... Thanks Nepta for implementing the backend in GO... Hopefully this web tool can help a lot of game modders and developers handling their FGD files... Also thanks to Pup Luka for his python algorithm as a guide and reference
 
 Proceeding now with the formal talk of the project.
 
 The app will be referred as SB for simplification.
 
-Website : https://chumasuey.github.io/FGDSchemaBuilder
+Website : [FGDSchemaBuilder](https://fgdschemabuilder.onrender.com)
+
+Currently is hosted on onrender, if the website hasn't been active it will take a bit to download, but deploy is fully functional.
 
 ## Technical Aspects / Technical Content
 
-The script is made out of React (Javascript language), there are some remnants in some branches of Python (possibly this one) but it doesn't work, what Python initially in backend was the parsing and file handling.
+The script is made out of React on front, GO on back with json file handling internally.
 
 
 # Instructions on how to use the Website.
 
-It's very recommended the user uses an FGD file as an skeletal reference or template... There are some notes to point out from the script that are going to be appointed.
-
-Also it's very recommended to partially edit the file manually in certain parts or corrections, the website
+While the script is fully functional, it's recommended to do FGD files manual editing in some specific scenarios.
 
 When entering the website, the next picture show as follows.
 
@@ -88,6 +88,17 @@ Drag Mode (OFF/ON): This activate in the entity list a drag mode to move up and 
 
 Toggle Light/Dark Mode: Will setup the Light/Dark mode... should be saved in the browser when revisiting the script.
 
+## Functionality details
+
+- The functionality is like the editing a file but with a Web GUI (WUI) instead of manually... so there's not much to add.
+- All entities that are created as new will be in the bottom of the file.
+- To move up and or down a new entity within the fgd file i suggest the user uses the AO button, find the entity and click it / try to move it... it will sync alphabetically.
+- The script can handle custom entity with custom values... these however are recognized... all the custom entities with specific custom values should be handled manually in the file.
+- Preferred method of work : import an FGD file, edit it and then export it.
+- Copy to clipboard works and is an alternate way to export, main path of work is Export button (exporting the current file).
+
+
+
 ### Notes
 
 This script has some quirks and it's not a perfect editor in all the means, several notes should be taken into account:
@@ -105,6 +116,8 @@ Hoping future modifications solve and ease the matter.
 - Chuma (programming, team lead, full-stack)
 - Nepta (programming, advice, backend)
 - Dany (Testing and Feedback, frontend programming advice)
+- Admer456 (design feedback)
+- Pup Luka (design feedback and main support and inspiration for reworking the script)
 
 
 Special thanks to bmFbr, Paril, CommonCold, Lavender.
