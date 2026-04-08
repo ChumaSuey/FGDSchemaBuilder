@@ -132,6 +132,7 @@ Special thanks to:
 - Quake Mapping Community (QBSP).
 - Pacifist Paradise Community.
 - Quakedev Community
+- Skillmaster (and friends)
 All of our family and friends that support us.
 
 Documentation written by Chuma in a formal/semi-formal way while keeping the style.
