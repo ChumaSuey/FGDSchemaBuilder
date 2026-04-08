@@ -96,20 +96,24 @@ Toggle Light/Dark Mode: Will setup the Light/Dark mode... should be saved in the
 - The script can handle custom entity with custom values... these however are recognized... all the custom entities with specific custom values should be handled manually in the file.
 - Preferred method of work : import an FGD file, edit it and then export it.
 - Copy to clipboard works and is an alternate way to export, main path of work is Export button (exporting the current file).
+- The script does understand when there are custom properties within a script, they are recognized but it's better to add custom properties manually.
+
+The original weird behavior of the parser were because React was overloaded of tasks, luckily with GO this problem has been solved and it acts properly as intended, as envisioned... Up for changes and fixes if possible... Just take into account custom properties to the entities is better to add them manually.
+
+enjoy! EXCELSIOR!
 
 
+### Solved Notes
 
-### Notes
+~~This script has some quirks and it's not a perfect editor in all the means, several notes should be taken into account:~~
+~~- Some properties may have a mishap showing or directly being edited in the editor, this is a small percentage but still.~~
+~~- Comments are deleted when exporting the PDF due to a possible error, coding the parser is complicated... This may be patched in the future.~~
 
-This script has some quirks and it's not a perfect editor in all the means, several notes should be taken into account:
-- Some properties may have a mishap showing or directly being edited in the editor, this is a small percentage but still.
-- Comments are deleted when exporting the PDF due to a possible error, coding the parser is complicated... This may be patched in the future.
-- The script does understand when there are custom properties within a script, while recognized they can't be added for now.
-- Search Function and Filter by don't work together, but they work independently when looking for an specific function or just showing the type of entities the user is looking for.
+~~- Search Function and Filter by don't work together, but they work independently when looking for an specific function or just showing the type of entities the user is looking for.~~
 
-This script is mean't help modders and developers to setup and modify existing FGD files, the tool (website) isn't at it's prime.
+~~This script is mean't help modders and developers to setup and modify existing FGD files, the tool (website) isn't at it's prime.~~
 
-Hoping future modifications solve and ease the matter.
+~~Hoping future modifications solve and ease the matter.~~
 
 
 # Credits
